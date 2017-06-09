@@ -5,8 +5,14 @@ import unittest
 
 class test_calculations(unittest.TestCase):
     def test_calculates_entropy(self):
-        rounded_entropy = round(calculate_entropy([2, 3]), 5)
-        self.assertEqual(rounded_entropy, 0.97095)
+        # Test a simple case with 2 class supports of 2 and 3.
+        self.assertEqual(round(calculate_entropy([2, 3]), 5), 0.97095)
+        # Test a case where there is only one class. 
+        self.assertEqual(calculate_entropy([4]), 0)
+        # Test that a ValueError exception is raised when a support is = 0.
+        self.assertRaises(calculate_entropy([1, 3, 0]), 1234)
+        # Test that a ValueError exception is raised when a support is < 0.
+        self.assertRaises(calculate_entropy([1, 3, -5]), 1234)
 
 if __name__ == '__main__':
     unittest.main(exit=False)
