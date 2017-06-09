@@ -7,5 +7,5 @@ def calculate_entropy(support_true, support_false):
     prior_true = support_true/support_total
     prior_false = support_false/support_total
 
-    return  prior_true * math.log(prior_true, 2) + \
-            prior_false * math.log(prior_false, 2)
+    return  -prior_true * math.log(prior_true, 2) + \
+            -prior_false * math.log(prior_false, 2)
