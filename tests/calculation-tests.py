@@ -10,9 +10,9 @@ class test_calculations(unittest.TestCase):
         # Test a case where there is only one class. 
         self.assertEqual(calculate_entropy([4]), 0)
         # Test that a ValueError exception is raised when a support is = 0.
-        self.assertRaises(calculate_entropy([1, 3, 0]), 1234)
+        self.assertRaises(ValueError, calculate_entropy([1, 3, 0]), 1234)
         # Test that a ValueError exception is raised when a support is < 0.
-        self.assertRaises(calculate_entropy([1, 3, -5]), 1234)
+        self.assertRaises(ValueError, calculate_entropy([1, 3, -5]), 1234)
 
 if __name__ == '__main__':
     unittest.main(exit=False)
