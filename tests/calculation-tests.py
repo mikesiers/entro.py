@@ -1,4 +1,6 @@
-from ../src/entro import calculate_entropy
+import sys
+sys.path.append('../')
+from src import entro
 import unittest
 
 class test_calculations(unittest.TestCase):
