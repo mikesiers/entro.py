@@ -1,4 +1,4 @@
-from entro-py import calculate_entropy
+from entro import calculate_entropy
 import unittest
 
 class test_calculations(unittest.TestCase):
