@@ -19,7 +19,7 @@ def calculate_entropy(supports):
         ValueError: If one or more of the support values are 0 or less.
 
     """
-    if any(i <= 0 for in supports):
+    if any(i <= 0 for i in supports):
         raise ValueError('One or more input support values was 0 or less.')
     support_total = sum(supports)
 
