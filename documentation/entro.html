@@ -28,16 +28,15 @@ measurements.&nbsp;It&nbsp;is&nbsp;mainly&nbsp;intended&nbsp;for&nbsp;use&nbsp;i
 <font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
     
 <tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><dl><dt><a name="-calculate_entropy"><strong>calculate_entropy</strong></a>(support_true, support_false)</dt><dd><tt>This&nbsp;function&nbsp;can&nbsp;be&nbsp;used&nbsp;to&nbsp;calculate&nbsp;information&nbsp;entropy.<br>
+<td width="100%"><dl><dt><a name="-calculate_entropy"><strong>calculate_entropy</strong></a>(supports)</dt><dd><tt>This&nbsp;function&nbsp;can&nbsp;be&nbsp;used&nbsp;to&nbsp;calculate&nbsp;information&nbsp;entropy.<br>
 &nbsp;<br>
 Args:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;support_true&nbsp;(int):&nbsp;The&nbsp;number&nbsp;of&nbsp;data&nbsp;points&nbsp;considered&nbsp;positive.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;support_false&nbsp;(int):&nbsp;The&nbsp;number&nbsp;of&nbsp;data&nbsp;points&nbsp;considered&nbsp;negative.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;supports&nbsp;(array&lt;int&gt;):&nbsp;The&nbsp;number&nbsp;of&nbsp;data&nbsp;points&nbsp;for&nbsp;each&nbsp;class&nbsp;value.<br>
 &nbsp;<br>
 Returns:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;(num):&nbsp;The&nbsp;information&nbsp;entropy&nbsp;given&nbsp;the&nbsp;two&nbsp;support&nbsp;counts.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;(num):&nbsp;The&nbsp;information&nbsp;entropy&nbsp;given&nbsp;the&nbsp;support&nbsp;counts.<br>
 &nbsp;<br>
 Raises:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;ValueError:&nbsp;If&nbsp;one&nbsp;or&nbsp;more&nbsp;of&nbsp;the&nbsp;support&nbsp;values&nbsp;are&nbsp;negative.</tt></dd></dl>
+&nbsp;&nbsp;&nbsp;&nbsp;ValueError:&nbsp;If&nbsp;one&nbsp;or&nbsp;more&nbsp;of&nbsp;the&nbsp;support&nbsp;values&nbsp;are&nbsp;0&nbsp;or&nbsp;less.</tt></dd></dl>
 </td></tr></table>
 </body></html>
