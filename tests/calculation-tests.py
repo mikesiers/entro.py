@@ -11,10 +11,10 @@ class test_calculations(unittest.TestCase):
         self.assertEqual(calculate_entropy([4]), 0)
         # Test that a ValueError exception is raised when a support is = 0.
         with self.assertRaises(ValueError):
-            calculate_entropy([1, 3, 0]), 1234)
+            calculate_entropy([1, 3, 0])
         # Test that a ValueError exception is raised when a support is < 0.
         with self.assertRaises(ValueError)
-            calculate_entropy([1, 3, -5]), 1234)
+            calculate_entropy([1, 3, -5])
 
 if __name__ == '__main__':
     unittest.main(exit=False)
