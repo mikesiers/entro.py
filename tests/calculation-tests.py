@@ -13,8 +13,13 @@ class test_calculations(unittest.TestCase):
         with self.assertRaises(ValueError):
             calculate_entropy([1, 3, 0])
         # Test that a ValueError exception is raised when a support is < 0.
-        with self.assertRaises(ValueError)
+        with self.assertRaises(ValueError):
             calculate_entropy([1, 3, -5])
+
+    def test_calculates_info_gain(self):
+        # Test a simple split with two resulting children.
+        gain = calculate_info_gain([[2, 1], [2, 5])]
+        self.assertEqual(round(gain, 5), 0.87967)
 
 if __name__ == '__main__':
     unittest.main(exit=False)
