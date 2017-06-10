@@ -6,7 +6,7 @@ measurements. It is mainly intended for use in machine learning algorithms.
 """
 import math
 
-def calculate_entropy(supports):
+def entropy(supports):
     """This function can be used to calculate information entropy.
 
     Args:
