@@ -19,7 +19,7 @@ class test_calculations(unittest.TestCase):
     def test_info_gain(self):
         # Test a simple split with two resulting children.
         gain = info_gain([[3, 1], [1, 5]], [4, 6])
-        self.assertEqual(round(gain, 5), 0.35643)
+        self.assertEqual(round(gain, 5), 0.25643)
 
 if __name__ == '__main__':
     unittest.main(exit=False)
