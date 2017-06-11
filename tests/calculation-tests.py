@@ -1,6 +1,6 @@
 import sys
 sys.path.append('../')
-from src.entro import entropy
+from src.entro import entropy, info_gain
 import unittest
 
 class test_calculations(unittest.TestCase):
