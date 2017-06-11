@@ -29,3 +29,32 @@ def entropy(supports):
         entropy += -prior * math.log(prior, 2)
 
     return entropy
+
+def info_gain(splits, parent_supports):
+    """This function can be used to calculate information gain.
+
+    Args:
+        splits (array<array<int>>): A multi dimensional array containing
+                                    the number of data points for each
+                                    class value such that splits[i][j]
+                                    contains the number of data points
+                                    belonging to the i'th split and j'th
+                                    class value.
+
+    Returns:
+        (num): The information gain given the support counts of the splits.
+
+    Raises:
+        ValueError: If one or more of the support values are 0 or less.
+    
+    """
+    weighted_entropies = []
+    for split in splits:
+        if any(i <= 0 for i in split):
+            raise ValueError('One or more input support values was 0 or less.')
+        split_entropy = (entropy(split))
+        weight = sum(split)/sum(parent_supports)
+        weighted_entropies.append(weight * split_entropy)
+
+    parent_entropy = entropy(parent_supports)
+    return sum(weighted_entropies) / parent_entropy
