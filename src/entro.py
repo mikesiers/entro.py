@@ -56,5 +56,4 @@ def info_gain(splits, parent_supports):
         weight = sum(split)/sum(parent_supports)
         weighted_entropies.append(weight * split_entropy)
 
-    parent_entropy = entropy(parent_supports)
-    return sum(weighted_entropies) / parent_entropy
+    return entropy(parent_supports) - sum(weighted_entropies)
