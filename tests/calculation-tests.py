@@ -20,6 +20,12 @@ class test_calculations(unittest.TestCase):
         # Test a simple split with two resulting children.
         gain = info_gain([[3, 1], [1, 5]], [4, 6])
         self.assertEqual(round(gain, 5), 0.25643)
+        # Test that a ValueError exception is raised when a support is = 0.
+        with self.assertRaises(ValueError):
+            info_gain([[1, 3, 0], [2, 5, 1]], [3, 2, 9])
+        # Test that a ValueError exception is raised when a support is < 0.
+        with self.assertRaises(ValueError):
+            info_gain([[1, 3, -5], [2, 5, 1]], [3, 2, 9])
 
 if __name__ == '__main__':
     unittest.main(exit=False)
