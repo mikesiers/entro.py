@@ -32,5 +32,11 @@ class test_calculations(unittest.TestCase):
         # Test that ValueError exception is raised when a parent support < 0.
         with self.assertRaises(ValueError):
             info_gain([[1, 3, 5], [2, 5, 1]], [3, -6, 9])
+
+    def test_split_info(self):
+        # Test a simple split with two resulting children.
+        info = split_info([[3, 1], [1, 5]], [4, 6])
+        self.assertEqual(round(info, 5), 0.97095)
+
 if __name__ == '__main__':
     unittest.main(exit=False)
