@@ -57,3 +57,22 @@ def info_gain(splits, parent_supports):
         weighted_entropies.append(weight * split_entropy)
 
     return entropy(parent_supports) - sum(weighted_entropies)
+
+def split_info(split_sizes, parent_size):
+    """This function can be used to calculate split information.
+
+    Args:
+        split_sizes (array<int>): The number of data points in each split.
+
+    Returns:
+        (num): The split information calculated from the given split sizes.
+
+    Raises:
+        ValueError: If one or more of the sizes are 0 or less.
+    
+    """
+    if any(i <= 0 for i in split_sizes):
+        raise ValueError('One or more input split sizes was 0 or less.')
+    weighted_sizes = [x / parent_size for x in split_sizes]
+    indivual_split_infos = [x * math.log(x, 2) for x in weighted_sizes]
+    return -1 * sum(individual_split_infos)
