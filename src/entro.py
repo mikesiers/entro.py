@@ -76,3 +76,31 @@ def split_info(split_sizes, parent_size):
     weighted_sizes = [x / parent_size for x in split_sizes]
     individual_split_infos = [x * math.log(x, 2) for x in weighted_sizes]
     return -1 * sum(individual_split_infos)
+
+def gain_ratio(splits, parent_supports):
+    """The function can be used to calculate gain ratio.
+
+    Args:
+        split_sizes (array<int>): The number of data points in each split.
+                                                                            
+    Returns:
+        (num): The split information calculated from the given split sizes.
+                                                                            
+    Raises:
+        ValueError: If one or more of the sizes are 0 or less.
+    
+    """
+    split_sizes = []
+    for split in splits:
+        split_sizes.append(sum(split))
+    parent_size = sum(parent_supports)
+
+    print("split sizes:", split_sizes)
+    print("parent size:", parent_size)
+
+    information_gained = info_gain(splits, parent_supports)
+    print("info gain:", information_gained)
+    split_information = split_info(split_sizes, parent_size)
+    print("split info:", split_information)
+
+    return information_gained / split_information
