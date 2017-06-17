@@ -35,8 +35,7 @@ class test_calculations(unittest.TestCase):
 
     def test_split_info(self):
         # Test a simple split with two resulting children.
-        info = split_info([[3, 1], [1, 5]], [4, 6])
-        self.assertEqual(round(info, 5), 0.97095)
+        self.assertEqual(round(split_info([4, 6], 10), 5), 0.97095)
 
 if __name__ == '__main__':
     unittest.main(exit=False)
