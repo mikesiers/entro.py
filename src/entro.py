@@ -34,12 +34,15 @@ def info_gain(splits, parent_supports):
     """This function can be used to calculate information gain.
 
     Args:
-        splits (array<array<int>>): A multi dimensional array containing
-                                    the number of data points for each
-                                    class value such that splits[i][j]
-                                    contains the number of data points
-                                    belonging to the i'th split and j'th
+        splits (list<list<int>>):   A list of lists containing the number of
+                                    data points for each class value such that
+                                    splits[i][j] contains the number of data
+                                    points belonging to the i'th split and j'th
                                     class value.
+
+        parent_supports (array<int>):   A list of the number of data points for
+                                        each class value within the parent
+                                        node.
 
     Returns:
         (num): The information gain given the support counts of the splits.
@@ -64,6 +67,8 @@ def split_info(split_sizes, parent_size):
     Args:
         split_sizes (array<int>): The number of data points in each split.
 
+        parent_size (int): The number of data points in the parent node.
+
     Returns:
         (num): The split information calculated from the given split sizes.
 
@@ -81,13 +86,21 @@ def gain_ratio(splits, parent_supports):
     """The function can be used to calculate gain ratio.
 
     Args:
-        split_sizes (array<int>): The number of data points in each split.
+        splits (list<list<int>>):   A list of lists containing the number of
+                                    data points for each class value such that
+                                    splits[i][j] contains the number of data
+                                    points belonging to the i'th split and j'th
+                                    class value.
+                                                                                
+        parent_supports (array<int>):   A list of the number of data points for
+                                        each class value within the parent
+                                        node.
                                                                             
     Returns:
-        (num): The split information calculated from the given split sizes.
+        (num): The gain ratio calculated from the given split supports.
                                                                             
     Raises:
-        ValueError: If one or more of the sizes are 0 or less.
+        ValueError: If one or more of the support counts are 0 or less.
     
     """
     split_sizes = []
