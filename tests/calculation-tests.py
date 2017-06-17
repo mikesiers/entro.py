@@ -52,7 +52,7 @@ class test_calculations(unittest.TestCase):
     def test_gain_ratio(self):
         # Test a simple split with two resulting children.
         ratio = gain_ratio([[3, 1], [1, 5]], [4, 6])
-        self.assertEqual(round(ratio, 5), 0.25643)
+        self.assertEqual(round(ratio, 4), 0.2641)
 
 if __name__ == '__main__':
     unittest.main(exit=False)
