@@ -71,7 +71,7 @@ def split_info(split_sizes, parent_size):
         ValueError: If one or more of the sizes are 0 or less.
     
     """
-    if any(i <= 0 for i in split_sizes):
+    if any(i <= 0 for i in split_sizes) or parent_size <= 0:
         raise ValueError('One or more input split sizes was 0 or less.')
     weighted_sizes = [x / parent_size for x in split_sizes]
     individual_split_infos = [x * math.log(x, 2) for x in weighted_sizes]
