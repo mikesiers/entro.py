@@ -1,6 +1,6 @@
 import sys
 sys.path.append('../')
-from src.entro import entropy, info_gain, split_info
+from src.entro import entropy, info_gain, split_info, gain_ratio
 import unittest
 
 class test_calculations(unittest.TestCase):
@@ -48,6 +48,11 @@ class test_calculations(unittest.TestCase):
         # Test that ValueError exception is raised when the parent size < 0.
         with self.assertRaises(ValueError):
             split_info([4, 6], -10)
+
+    def test_gain_ratio(self):
+        # Test a simple split with two resulting children.
+        ratio = gain_ratio([[3, 1], [1, 5]], [4, 6])
+        self.assertEqual(round(ratio, 5), 0.67953)
 
 if __name__ == '__main__':
     unittest.main(exit=False)
