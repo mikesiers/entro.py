@@ -36,6 +36,18 @@ class test_calculations(unittest.TestCase):
     def test_split_info(self):
         # Test a simple split with two resulting children.
         self.assertEqual(round(split_info([4, 6], 10), 5), 0.97095)
+        # Test that ValueError exception is raised when a split size = 0.
+        with self.assertRaises(ValueError):
+            split_info([4, 0], 10)
+        # Test that ValueError exception is raised when a split size < 0.
+        with self.assertRaises(ValueError):
+            split_info([-3, 6], 10)
+        # Test that ValueError exception is raised when the parent size =  0.
+        with self.assertRaises(ValueError):
+            split_info([4, 6], 0)
+        # Test that ValueError exception is raised when the parent size < 0.
+        with self.assertRaises(ValueError):
+            split_info([4, 6], -10)
 
 if __name__ == '__main__':
     unittest.main(exit=False)
