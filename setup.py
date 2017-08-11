@@ -1,7 +1,7 @@
 from distutils.core import setup
 setup(
   name = 'entro',
-  packages = ['entro'],
+  py_modules = ['entro'],
   version = '1.01',
   description = 'Information entropy measurements library',
   author = 'Michael J. Siers',
